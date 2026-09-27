@@ -277,9 +277,12 @@ h2{ font-size:17px; font-weight:780; letter-spacing:-.01em; margin:36px 0 14px; 
 /* A caixa do total inteira centralizada, como um recibo. */
 .total{ text-align:center; }
 
-/* Duração e paradas: cada uma na largura inteira, numa linha só. */
-.detalhes li.det-longo{ grid-column:1 / -1; }
-.detalhes li.det-longo span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+/* Duração e paradas: no celular, cada uma na largura inteira, numa linha só;
+   no computador e no tablet, lado a lado, como os outros pares. */
+@media (max-width:640px){
+  .detalhes li.det-longo{ grid-column:1 / -1; }
+  .detalhes li.det-longo span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+}
 @media (prefers-reduced-motion: reduce){ .barra{ transition:none; } }
 
 .sub-viagem{ margin:18px 0 10px; font-size:15px; font-weight:700; color:var(--tinta-2); text-transform:none; }
